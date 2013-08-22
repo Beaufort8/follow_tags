@@ -6,10 +6,12 @@
  * for Elgg 1.8
  */
 
-// Abfrage ob der eingeloggte Nutzer diese Seite besuchen darf oder ob er Admin is
-// Page for Usersettings
-
-
+//Create a FollowTagsObject if logged in user have none
+if(!existFollowTagObject(elgg_get_logged_in_user_guid())){
+		createFollowTagObject();
+}
+       
+     
 
 $title = elgg_echo('follow_tags:settings:title');
 
@@ -23,10 +25,9 @@ elgg_push_breadcrumb(elgg_echo('Settings'),"settings/user/$user->username");
 elgg_push_breadcrumb($title);
 
 
- $content = elgg_view_title($title);
+ $content  = elgg_view_title($title);
  $content .= elgg_view_form('follow_tags/save');
 
- // use a special admin layout
  $body = elgg_view_layout('one_sidebar', array('content' => $content));
 
  echo elgg_view_page($title, $body);

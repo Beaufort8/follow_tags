@@ -6,19 +6,19 @@
  * for Elgg 1.8
  */
 
+//Get current Tags from logged in User
+$value = getCurrentTagsFrom(elgg_get_logged_in_user_guid());
 
 
-
-// ------------  Create Views  -----------------------------
-
-$instructions = elgg_echo('follow_tag:settings:instructions');
-$follow_tag	 = elgg_view('input/tags', array( 'name' => 'fallowtag',
+//Create Views Elements
+$instructions = elgg_echo('follow_tags:settings:instructions');
+$follow_tag	 = elgg_view('input/tags', array( 'name' => 'fallowtags',
 											  'value' => $value,
 											));
 $button = elgg_view('input/submit', array( 'value' => elgg_echo('save')));
 
-//---------------------------------------------------------
 
+// Display Elements
 echo <<< HTML
 	
 

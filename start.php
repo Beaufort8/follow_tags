@@ -13,8 +13,14 @@
 
 function followers_init() {
 	
-	
-	
+
+	//Register Libary File 
+    elgg_register_library('follow_tags', dirname(__FILE__) . '/lib/follow_tags_lib.php');
+    elgg_load_library('follow_tags');
+
+
+    //Register Save Action for saving and changing FollowTags
+    elgg_register_action("follow_tags/save", dirname(__FILE__) . '/action/save.php');
 
 	//Register a River Tab
 	if (elgg_is_logged_in()) {
