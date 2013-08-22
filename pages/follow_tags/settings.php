@@ -10,8 +10,6 @@
 if(!existFollowTagObject(elgg_get_logged_in_user_guid())){
 		createFollowTagObject();
 }
-       
-     
 
 $title = elgg_echo('follow_tags:settings:title');
 

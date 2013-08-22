@@ -21,25 +21,25 @@ if ($type != 'all') {
 	}
 }
 
-
 $title = elgg_echo('river:tags');
 
-//Clear value_ids
-$value_ids ="";
 
 //Option vor FollowTags
-//Get All TagsID´s from FollowTagsObject
+//Get All TagsID´s from FollowTagsObject 
+$cnt = false;
 $tags = get_metadata_byname (getID(elgg_get_logged_in_user_guid()),'tags');
 		foreach ($tags as $tag) {
   			$tagid = $tag['value_id'];
-			$value_ids .= "value_id = $tagid OR ";
-}
-$value_ids = substr($value_ids, 0, -3);
-echo $value_ids;	
-$value_ids ="value_id = 11 OR value_id = 2921";
-$test ="object_guid IN ( SELECT  entity_guid FROM elgg_metadata WHERE $value_ids  ) AND action_type = 'create'";
-$options['wheres'] = array($test);
+			if($cnt) {
+				$value_ids .= " OR ";
+			}
+			$cnt = true;
+			$value_ids .= "value_id = $tagid";
 
+}
+
+$sql_where ="object_guid IN ( SELECT  entity_guid FROM elgg_metadata WHERE $value_ids  ) AND action_type = 'create'";
+$options['wheres'] = array($sql_where);
 
 
 $activity = elgg_list_river($options);
@@ -47,9 +47,13 @@ if (!$activity) {
 		
 		$content = "";
 		$activity = elgg_echo('follow_tags:noactivity') ;
-}		 
+}	
 
+//Get Riverfilter
 $content = elgg_view('core/river/filter', array('selector' => $selector));
+//Get Settingsform
+$content .= elgg_view_form('follow_tags/save');
+//Get Sidebar
 $sidebar = elgg_view('core/river/sidebar');
 
 $params = array(
@@ -69,7 +73,11 @@ echo elgg_view_page($title, $body);
 <script type="text/javascript">
 $(document).ready(function(){
      $('.elgg-menu-item-tags').addClass('elgg-state-selected');    
+
+
 });
 </script>
+
+
 
 

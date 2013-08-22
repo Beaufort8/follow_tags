@@ -22,6 +22,7 @@ function followers_init() {
     //Register Save Action for saving and changing FollowTags
     elgg_register_action("follow_tags/save", dirname(__FILE__) . '/action/save.php');
 
+
 	//Register a River Tab
 	if (elgg_is_logged_in()) {
 		$user = elgg_get_logged_in_user_entity();
