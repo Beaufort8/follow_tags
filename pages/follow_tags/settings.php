@@ -24,6 +24,7 @@ elgg_push_breadcrumb($title);
 
 
  $content  = elgg_view_title($title);
+ 
  $content .= elgg_view_form('follow_tags/save');
 
  $body = elgg_view_layout('one_sidebar', array('content' => $content));

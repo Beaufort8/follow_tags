@@ -1,6 +1,6 @@
 <?php
 /**
- *  Follow Tag by Alexander Stifel
+ *  FollowTags by Alexander Stifel
  *
  *
  * @author Alexander Stifel
@@ -11,7 +11,7 @@
  *
  */
 
-function followers_init() {
+function followtags_init() {
 	
 
 	//Register Libary File 
@@ -54,6 +54,30 @@ function followers_init() {
 	elgg_register_page_handler('follow_tags', 'follow_tags_page_handler');
 
 
+	//Register JS and CSS for custom taginput field
+	$js_url = 'mod/follow_tags/vendors/jquery.tagsinput.min.js';
+	elgg_register_js('taginput', $js_url, 'footer');
+	elgg_load_js('taginput');
+
+	
+	// Register CSS for TagInput
+	$css_url = 'mod/follow_tags/vendors/jquery.tagsinput.css';
+	elgg_register_css('special', $css_url);
+	elgg_load_css('special');
+	
+	// Add a JavaScript Initialization
+	elgg_extend_view('js/elgg','follow_tags/js');
+	
+	
+    //Trigger all Create Events for the Notification 
+	elgg_trigger_event('create', 'object', $object);
+	 
+	// Run the followtags_notofy function in event is triggerd
+	elgg_register_event_handler('create', 'object', 'followtags_notify');
+
+	 
+
+
 }
 
 function followers_activity_page_handler($segments, $handle) {
@@ -78,5 +102,4 @@ function follow_tags_page_handler($page){
 
 
 
-
-elgg_register_event_handler('init', 'system', 'followers_init');
+elgg_register_event_handler('init', 'system', 'followtags_init');
