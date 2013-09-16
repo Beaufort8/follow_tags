@@ -138,11 +138,8 @@ if($access != '0')
         }
      break;
      }
-	
-	//$tagid ="alexanderstifel,stuttgart,";
+
     
-    
-    $tagid = "iphone";
     //Create Tagarray 
     $tagarray = explode(",",$tagid);
 
