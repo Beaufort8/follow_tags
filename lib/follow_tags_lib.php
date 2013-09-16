@@ -17,10 +17,13 @@ function existFollowTagObject($guid){
 
 
 function createFollowTagObject(){
+  $user = elgg_get_logged_in_user_entity();
+  
   $followTag = new ElggObject();
   $followTag->subtype = "FollowTags";
   $followTag->owner_guid = elgg_get_logged_in_user_guid();
-  $followTag->title = "Iam a FollowTags Object";
+  $followTag->title = $user->name;
+  $followTag->access_id = 1;
   $followTag->description = "";
 
   //Notify standard value 
@@ -36,10 +39,13 @@ function createFollowTagObject(){
 
 function saveFollowTags($input,$id,$notify){
   //Get FollowTagObject and Clear all Tag Relationships
+  $user = elgg_get_logged_in_user_entity();
+  
   $followTags = get_entity($id);
   $followTags->clearRelationships();
   $followTags->description =$input;
-  
+  $followTags->title = $user->name;
+  $followTags->access_id = 1;
   $followTags->notify = $notify;
 
   //Convert the Taginput string to array and save to FollowTagObj
@@ -105,11 +111,13 @@ function followtags_notify($event, $type, $object) {
 //subtype 11,9,7,6 are notification, message, FollowTags, admin_notice
 //followtags_notify should not run if the create object have one of this subtypes
  $sub = $object->subtype;
+//Dont notifyuser if object is private	
+ $access = $object->access_id; // 0 is private
 
-if($sub != 9 OR $sub != 6 OR $sub != 7 OR  $sub != 11)
+
+if($access != '0')
 { 
-
-    //Get all tags from created Object
+	    //Get all tags from created Object
     $tags = get_metadata_byname ($object->guid,'tags');
 
     //Check the number of tags and handle 0 and 1 tags
@@ -120,6 +128,7 @@ if($sub != 9 OR $sub != 6 OR $sub != 7 OR  $sub != 11)
 
       case 1:
         $tagid = $tags['value'];
+        
       break;
     
       default:
@@ -129,8 +138,11 @@ if($sub != 9 OR $sub != 6 OR $sub != 7 OR  $sub != 11)
         }
      break;
      }
-
-      
+	
+	//$tagid ="alexanderstifel,stuttgart,";
+    
+    
+    $tagid = "iphone";
     //Create Tagarray 
     $tagarray = explode(",",$tagid);
 
@@ -139,13 +151,16 @@ if($sub != 9 OR $sub != 6 OR $sub != 7 OR  $sub != 11)
         'type' => 'object' ,
         'subtype' => 'FollowTags',
         'metadata_values' => $tagarray,
+        
          
-    ));
+    )); 
+ 	
+ 	
+ 	
 
-     
- 
+ 	   
     //Check how many user follow object tags and create a acceptor array
-
+	
     if(count($users) == 1){
 
      // Only one user 
@@ -160,6 +175,7 @@ if($sub != 9 OR $sub != 6 OR $sub != 7 OR  $sub != 11)
         return;
      }
      
+
      
      if($to == get_loggedin_user()->guid){
       //Dont notify creator
@@ -182,8 +198,12 @@ if($sub != 9 OR $sub != 6 OR $sub != 7 OR  $sub != 11)
       }
     }
   }
-    
 
+    
+  
+
+
+  
     //Create Notifcation subject and body
    $ftObj = get_entity($object->owner_guid);
    $creator = $ftObj->name;
@@ -212,7 +232,7 @@ if($sub != 9 OR $sub != 6 OR $sub != 7 OR  $sub != 11)
 
     // Notify user 
     // 1 is sender id from the elgg site
-
+    
     notify_user($toArray, 1, $subject, $body, NULL);
 
     
