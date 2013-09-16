@@ -14,6 +14,7 @@
 function followtags_init() {
 	
 
+	
 	//Register Libary File 
     elgg_register_library('follow_tags', dirname(__FILE__) . '/lib/follow_tags_lib.php');
     elgg_load_library('follow_tags');
