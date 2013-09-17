@@ -62,38 +62,57 @@ switch (count($tags)) {
 
 
 //Check if the user have any FollowTags
-
+$user = elgg_get_logged_in_user_entity();
+$user = $user->username;
 if(count($tags)!= 0 ){
 
-$sql_where ="object_guid IN ( SELECT  entity_guid FROM elgg_metadata WHERE $value_ids  ) AND action_type = 'create'";
-$options['wheres'] = array($sql_where);
+	$sql_where ="object_guid IN ( SELECT  entity_guid FROM elgg_metadata WHERE $value_ids  ) AND action_type = 'create'";
+	$options['wheres'] = array($sql_where);
 
 
-$activity = elgg_list_river($options);
-if(!$activity){
+	$activity = elgg_list_river($options);
+	if(!$activity){
 
-		$content = "";
-		$activity = elgg_echo('follow_tags:noactivity') ;
-}
+			$content = "";
+			
+			$activity = '<div class="emptynotice">';
+					$activity .= elgg_echo('follow_tags:notags') . ' ';
+					$activity .= elgg_view('output/url', array(
+						'text' => elgg_echo('follow_tags:notags:settings'),
+						'href' => "follow_tags/settings/$user",
+						'is_trusted' => true
+						));
+					$activity .= '.</div>';
+	}
 
 
 }else{
 		
-		$content = "";
-		$activity = elgg_echo('follow_tags:noactivity') ;
+	$content = "";
+
+	$activity = '<div class="emptynotice">';
+					$activity .= elgg_echo('follow_tags:notags') . ' ';
+					$activity .= elgg_view('output/url', array(
+						'text' => elgg_echo('follow_tags:notags:settings'),
+						'href' => "follow_tags/settings/$user",
+						'is_trusted' => true
+						));
+					$activity .= '.</div>';
 
 }
 
 
-//Get Riverfilter
-$content = elgg_view('core/river/filter', array('selector' => $selector));
+
 //Get Edit Button and Current Tags
-$content .= elgg_view_form('follow_tags/activity');
+$content = elgg_view_form('follow_tags/activity');
+
+//Get Riverfilter
+$content .= elgg_view('core/river/filter', array('selector' => $selector));
 
 //Get Sidebar
 $sidebar = elgg_view('core/river/sidebar');
 
- $params = array(
+$params = array(
         'content' => $content . $activity,
         'sidebar' => $sidebar,
         'filter_override' => elgg_view('filter_override/filteractivity',array('selected'=>$page_filter)),
@@ -122,7 +141,7 @@ echo elgg_view_page($title, $body);
 <!-- Current solution for TagTab selected state problem -->
 <script type="text/javascript">
 $(document).ready(function(){
-     $('.tag_tab').addClass('elgg-state-selected');    
+     $('.tag-tab').addClass('elgg-state-selected');    
 });
 </script>
 

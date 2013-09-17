@@ -27,17 +27,19 @@ $english = array(
    'follow_tags:settings:threshold'			=>'Set threshold for Autocomplete',
    'follow_tags:settings:defaultTags'		=>'Set up some defaultTags',
    'follow_tags:settings:title'  			=>'Follow Tags Settings',
-   'follow_tags:settings:title:tags'		=>'Follow Tags Settings',
-   'follow_tags:settings:title:notify'   	=>'FollowTags notification settings',
-   'follow_tags:settings:notify:description'=>'Iam a description text change me in en.php',
+   'follow_tags:settings:title:tags'		=>'Your tags',
+   'follow_tags:settings:title:notify'   	=>'Notification settings',
+   'follow_tags:settings:notify:description'=>'Notify me when related content is published.',
 
 
-
+   'follow_tags:notags' => 'You do not follow any tags yet or there are no entries matching your query. You can add tags in the ',
+   'follow_tags:notags:settings' => 'tag settings',
 
    'follow_tags:notification:subject'		=>'notification subject',
    'follow_tags:notification:body'			=>'notification body',
    'follow_tags:notification:body:creator'	=>' notification creator ',
 
+   'follow_tags:changesettings' => 'Change settings',
 
  
 );

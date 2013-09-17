@@ -1,4 +1,4 @@
-<?php
+ <?php
 /**
  * help/save form body
  *
@@ -49,14 +49,15 @@ echo <<< HTML
 	<div class="elgg-head">
 		<h3>$strings_title_notify</h3>
 	</div>
+	<table id="notificationstable" cellspacing="0"  width="100%">
+		<tr>
+			<td width="50%">$strings_notify_description</td>
+			<td><a>$follow_tags_checkbox</a></td>
+		</tr>
+	</table>
 </div>
 
-<table id="notificationstable" cellspacing="0" cellpadding="4" width="100%">
-	<tr>
-		<td>$strings_notify_description</td>
-		<td><a>$follow_tags_checkbox</a></td>
-	</tr>
-</table>
+
 </div>
 
 <div class="elgg-footer">
