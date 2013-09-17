@@ -10,11 +10,9 @@ $english = array(
    'follow_tags:title'           		    => 	'Follow Tag',
    'follow_tags:sidebar:title'  		    => 	'Follow Tag Settings',
 
-   'follow_tags:tab:title'					=>	'Tags',
-    
+   'follow_tags:tab:title'					=> 'Your Tags',
    'follow_tags:noactivity'					=> 'No Activity',
-    
-    
+        
    'follow_tags:save:error'					=> 'No Followtags saved!', 
    'follow_tags:save:message'				=> 'FollowTags are saved!', 
    'follow_tags:tags_input:add'				=>'Add a Tag',

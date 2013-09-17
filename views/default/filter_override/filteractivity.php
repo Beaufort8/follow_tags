@@ -14,7 +14,7 @@ $tabs = array(
 		'selected' => $vars['selected']=='groups',
 		),
 	'tags' => array(
-		'title' => elgg_echo('activity_plus:tags'),
+		'title' => elgg_echo('follow_tags:tab:title'),
 		'url' => $base."tags",
 		'selected' => $vars['selected']=='tags',
 		),
