@@ -11,10 +11,5 @@
                 <type>elgg_release</type>
                 <version>1.8</version>
         </requires>
-        <requires>
-				<type>priority</type>
-        		<priority>after</priority>
-        		<plugin>avh_theme2</plugin>
-        </requires>
         <activate_on_install>false</activate_on_install>
 </plugin_manifest>
