@@ -93,6 +93,17 @@ $content .= elgg_view_form('follow_tags/activity');
 //Get Sidebar
 $sidebar = elgg_view('core/river/sidebar');
 
+ $params = array(
+        'content' => $content . $activity,
+        'sidebar' => $sidebar,
+        'filter_override' => elgg_view('filter_override/filteractivity',array('selected'=>$page_filter)),
+        'class' => 'elgg-river-layout',
+        
+);
+
+
+
+/*
 $params = array(
 	'content' =>  $content . $activity,
 	'sidebar' => $sidebar,
@@ -100,6 +111,7 @@ $params = array(
 	'class' => 'elgg-river-layout',
 );
 
+*/
 
 $body = elgg_view_layout('content', $params);
 
@@ -110,7 +122,7 @@ echo elgg_view_page($title, $body);
 <!-- Current solution for TagTab selected state problem -->
 <script type="text/javascript">
 $(document).ready(function(){
-     $('.elgg-menu-item-tags').addClass('elgg-state-selected');    
+     $('.tag_tab').addClass('elgg-state-selected');    
 });
 </script>
 

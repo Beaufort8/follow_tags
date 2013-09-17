@@ -15,12 +15,6 @@ $check =getNotificationSettings(getID(elgg_get_logged_in_user_guid()));
 $save_btn = elgg_view('input/submit', array( 'value' => elgg_echo('save'),	
 											 'class' => 'elgg-button-submit ',
 									));
-
-$current_tags =  elgg_view('output/tags', array( 'name' => 'current_followtags',
-											  	 'value' => explode(",",$value),
-											));	   
-
-
 $follow_tags	 = elgg_view('input/tags', array( 'name' => 'followtags',
 											      'value' => $value,
 											      'id'   => 'follow',
@@ -44,8 +38,6 @@ echo <<< HTML
 	<div class="elgg-head">
 		<h3>$strings_title_tag</h3>
 	</div>
-
-<div class="current_tags_field">$current_tags</div>
 <div class="follow_tagsinput">$follow_tags</div>
 
 </div>

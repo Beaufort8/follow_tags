@@ -138,8 +138,7 @@ if($access != '0')
         }
      break;
      }
-
-    
+	
     //Create Tagarray 
     $tagarray = explode(",",$tagid);
 
@@ -161,7 +160,7 @@ if($access != '0')
     if(count($users) == 1){
 
      // Only one user 
-     
+    
      $follow_tag_notify = get_entity($users[0][guid]);
      $notify_value = $follow_tag_notify->notify;
     
@@ -229,7 +228,7 @@ if($access != '0')
 
     // Notify user 
     // 1 is sender id from the elgg site
-    
+
     notify_user($toArray, 1, $subject, $body, NULL);
 
     
