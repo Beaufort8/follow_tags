@@ -112,6 +112,7 @@ $content .= elgg_view('core/river/filter', array('selector' => $selector));
 //Get Sidebar
 $sidebar = elgg_view('core/river/sidebar');
 
+/*
 $params = array(
         'content' => $content . $activity,
         'sidebar' => $sidebar,
@@ -119,18 +120,14 @@ $params = array(
         'class' => 'elgg-river-layout',
         
 );
+*/
 
-
-
-/*
 $params = array(
 	'content' =>  $content . $activity,
 	'sidebar' => $sidebar,
 	'filter_context' => 'tags',
 	'class' => 'elgg-river-layout',
 );
-
-*/
 
 $body = elgg_view_layout('content', $params);
 
