@@ -259,3 +259,62 @@ function getAllTags(){
 	}
 	return $js_array;
 }
+
+
+function getActivityFollowTags(){
+
+	$tags = get_metadata_byname (getID(elgg_get_logged_in_user_guid()),'tags');
+	$cnt = 0;
+
+//Count the followTags and Create string for the SQL-query
+	
+switch (count($tags)) {
+    case 0:
+    break;
+
+    case 1:
+        
+       	$tagid = $tags['value_id'];
+		$value_ids = "value_id = $tagid";
+
+    break;
+    
+    default:
+        foreach ($tags as $tag) {
+			
+			$tagid = $tag['value_id'];
+			$cnt++;
+			if($cnt != count($tags))
+			{
+				$value_ids .= "value_id = $tagid";
+				$value_ids .= " OR ";
+			}else{
+
+				$value_ids .= "value_id = $tagid";
+			}
+			
+		}
+     break;
+}
+
+
+//Check if the user have any FollowTags
+$user = elgg_get_logged_in_user_entity();
+$user = $user->username;
+if(count($tags)!= 0 ){
+
+	$sql_where ="object_guid IN ( SELECT  entity_guid FROM elgg_metadata WHERE $value_ids  ) AND action_type = 'create'";
+	$options['wheres'] = array($sql_where);
+
+
+	$activity = elgg_list_river($options);
+
+	return $activity;
+}
+
+function getFollowTagsForm(){
+ 	
+ 	$content = elgg_view_form('follow_tags/activity');
+
+	return $content;
+}
