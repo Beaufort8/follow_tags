@@ -301,14 +301,14 @@ switch (count($tags)) {
 //Check if the user have any FollowTags
 $user = elgg_get_logged_in_user_entity();
 $user = $user->username;
-if(count($tags)!= 0 ){
-
-	$sql_where ="object_guid IN ( SELECT  entity_guid FROM elgg_metadata WHERE $value_ids  ) AND action_type = 'create'";
-	$options['wheres'] = array($sql_where);
-
-
-	$activity = elgg_list_river($options);
-
+	if(count($tags)!= 0 ){
+	
+		$sql_where ="object_guid IN ( SELECT  entity_guid FROM elgg_metadata WHERE $value_ids  ) AND action_type = 'create'";
+		$options['wheres'] = array($sql_where);
+	
+	
+		$activity = elgg_list_river($options);
+	}
 	return $activity;
 }
 
