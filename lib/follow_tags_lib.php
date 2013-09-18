@@ -229,35 +229,35 @@ function followtags_notify($event, $type, $object) {
 }
 
 /**
- * Return all Site Tags
+ * Return all Site Tags for jQuery Tags Inpug plugin
+ * see
+ * https://github.com/xoxco/jQuery-Tags-Input
+ * for Examples
+ * https://github.com/xoxco/jQuery-Tags-Input/tree/master/test
  *
  */
 
 function getAllTags(){
-	$threshold = elgg_get_plugin_setting("threshold", "follow_tags");  
-	if(!$threshold) {
-		// Set Default threshold
-		$threshold = 2; 
-	}
 	if(elgg_get_plugin_setting("autocomplete", "follow_tags") == 'yes'){
+		$threshold = elgg_get_plugin_setting("threshold", "follow_tags");  
+		if(!$threshold) {
+			// Set Default threshold
+			$threshold = 2; 
+		}
 
 		$options = array(
-			'limit'=>100000,
+			'limit'=>1000,
 			'threshold' => $threshold,
 			);
 		$tags =elgg_get_tags($options);
 
 		foreach ($tags as $tag) {
-			$text .= "$tag->tag,";
+			$json[]=$tag->tag;
 		}
-		$text .= elgg_get_plugin_setting("defaultTags", "follow_tags");
-		// Append the default Tags 
-		$php_array = explode(",",$text);
-		$js_array = json_encode($php_array);
-	} else {
-		$js_array = json_encode("");
+		$json = array_merge($json, explode(",",elgg_get_plugin_setting("defaultTags", "follow_tags")));
+		$json = json_encode($json);
 	}
-	return $js_array;
+	return $json;
 }
 
 
