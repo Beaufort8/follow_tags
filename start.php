@@ -16,9 +16,10 @@ function followtags_init() {
 		elgg_register_menu_item('filter', array(
 			'name' => 'tags',
 			'href' => "/activity/tags",
-			'text' => "Tags",
+			'text' => elgg_echo("follow_tags:tab:title"),
 			'priority' => 500,
 			'contexts' => array('activity'),
+			
 		));
 
 		//Register a Sidebar Item for Usersettings
@@ -34,7 +35,8 @@ function followtags_init() {
 	//Get de default Acitvity Page Handler
 	global $CONFIG, $default_activity_page_handler;
 	$default_activity_page_handler = $CONFIG->pagehandler['activity'];
-	
+
+
 	//Register Pagehanlder for activty and follow-tags settings
 	elgg_register_page_handler('activity', 'followers_activity_page_handler');
 	elgg_register_page_handler('follow_tags', 'follow_tags_page_handler');
@@ -60,7 +62,7 @@ function followtags_init() {
 
 }
 
-function followers_activity_page_handler($segments, $handle) {
+function followers_activity_page_handler($segments, $handle, $page) {
 	switch ($segments[0]) {
 		case 'tags':
 			require_once dirname(__FILE__) . '/pages/activity/follow_tags.php';

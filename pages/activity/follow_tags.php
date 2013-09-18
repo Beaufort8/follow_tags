@@ -2,7 +2,7 @@
 /**
  * Main activity stream list page
  */
-
+$page_filter = 'tags';
 $options = array();
 
 $page_type = 'tags';
@@ -101,8 +101,6 @@ if(count($tags)!= 0 ){
 
 }
 
-
-
 //Get Edit Button and Current Tags
 $content = elgg_view_form('follow_tags/activity');
 
@@ -117,8 +115,7 @@ $params = array(
         'content' => $content . $activity,
         'sidebar' => $sidebar,
         'filter_override' => elgg_view('filter_override/filteractivity',array('selected'=>$page_filter)),
-        'class' => 'elgg-river-layout',
-        
+        'class' => 'elgg-river-layout',   
 );
 */
 
@@ -135,12 +132,6 @@ echo elgg_view_page($title, $body);
 
 
 ?>
-<!-- Current solution for TagTab selected state problem -->
-<script type="text/javascript">
-$(document).ready(function(){
-     $('.tag-tab').addClass('elgg-state-selected');    
-});
-</script>
 
 
 
