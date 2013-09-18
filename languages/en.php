@@ -37,7 +37,7 @@ $english = array(
    'follow_tags:notification:body'			=>'There is new content with matching tags.',
    'follow_tags:notification:body:creator'	=>':  ',
 
-   'follow_tags:changesettings' => 'Change Setting',
+   'follow_tags:changesettings' => 'Edit Tags',
 
  
 );

@@ -37,7 +37,7 @@ $german = array(
    'follow_tags:notification:body'			=> 'Es wurde ein neuer Inhalt mit übereinstimmenden Tags gefunden.',
    'follow_tags:notification:body:creator'	=> ': ',
 
-   'follow_tags:changesettings' => 'Einstellungen ändern',
+   'follow_tags:changesettings' => 'Tags bearbeiten',
 
  
 );
