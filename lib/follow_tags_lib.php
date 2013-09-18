@@ -261,7 +261,7 @@ function getAllTags(){
 }
 
 
-function getActivityFollowTags(){
+function getActivityFollowTags($options){
 
 	$tags = get_metadata_byname (getID(elgg_get_logged_in_user_guid()),'tags');
 	$cnt = 0;
