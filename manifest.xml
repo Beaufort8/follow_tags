@@ -5,7 +5,7 @@
         <version>1.0</version>
         <description></description>
         <website>www.beaufort8.de</website>
-        <copyright>Alexader Stifel</copyright>
+        <copyright>Beaufort 8 GmbH, Stuttgart, Germany</copyright>
         <license>GNU Public License version 2</license>
         <requires>
                 <type>elgg_release</type>

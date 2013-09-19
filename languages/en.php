@@ -9,7 +9,7 @@ $english = array(
    'follow_tags:title'           		    => 	'Follow tags',
    'follow_tags:sidebar:title'  		    => 	'Follow tags settings',
 
-   'follow_tags:tab:title'					=> 'Your tags',
+   'follow_tags:tab:title'					=> 'My tags',
    'follow_tags:noactivity'					=> 'No activity',
         
    'follow_tags:save:error'					=> 'No tags saved!', 
@@ -24,7 +24,7 @@ $english = array(
    'follow_tags:settings:threshold'			=>'Set threshold for autocomplete',
    'follow_tags:settings:defaultTags'		=>'Set up some default tags',
    'follow_tags:settings:title'  			=>'Follow tags settings',
-   'follow_tags:settings:title:tags'		=>'Your tags',
+   'follow_tags:settings:title:tags'		=>'My tags',
    'follow_tags:settings:title:notify'   	=>'Notification settings',
    'follow_tags:settings:notify:description'=>'Notify me when related content is published.',
 
