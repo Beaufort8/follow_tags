@@ -48,15 +48,6 @@ $content .= elgg_view('core/river/filter', array('selector' => $selector));
 //Get Sidebar
 $sidebar = elgg_view('core/river/sidebar');
 
-/*
-$params = array(
-        'content' => $content . $activity,
-        'sidebar' => $sidebar,
-        'filter_override' => elgg_view('filter_override/filteractivity',array('selected'=>$page_filter)),
-        'class' => 'elgg-river-layout',   
-);
-*/
-
 $params = array(
 	'content' =>  $content . $activity,
 	'sidebar' => $sidebar,
@@ -67,10 +58,3 @@ $params = array(
 $body = elgg_view_layout('content', $params);
 
 echo elgg_view_page($title, $body);
-
-
-?>
-
-
-
-

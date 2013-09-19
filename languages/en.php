@@ -5,26 +5,25 @@
 *
 */
 
-$english = array(
+$english = array(   
+   'follow_tags:title'           		    => 	'Follow tags',
+   'follow_tags:sidebar:title'  		    => 	'Follow tags settings',
 
-   'follow_tags:title'           		    => 	'Follow Tag',
-   'follow_tags:sidebar:title'  		    => 	'Follow Tag Settings',
-
-   'follow_tags:tab:title'					=> 'Your Tags',
-   'follow_tags:noactivity'					=> 'No Activity',
+   'follow_tags:tab:title'					=> 'Your tags',
+   'follow_tags:noactivity'					=> 'No activity',
         
-   'follow_tags:save:error'					=> 'No Followtags saved!', 
-   'follow_tags:save:message'				=> 'FollowTags are saved!', 
-   'follow_tags:tags_input:add'				=>'Add a Tag',
+   'follow_tags:save:error'					=> 'No tags saved!', 
+   'follow_tags:save:message'				=> 'Tags are saved!', 
+   'follow_tags:tags_input:add'				=> 'Add a tag',
     
    'follow_tags:option:yes'					=>'Yes',
    'follow_tags:option:no'					=>'No',
   
    'follow_tags:settings:autocomplete'		=>'Autocomplete',
-   'follow_tags:settings:minChar'			=>'Set min Char for Autocomplete',
-   'follow_tags:settings:threshold'			=>'Set threshold for Autocomplete',
-   'follow_tags:settings:defaultTags'		=>'Set up some defaultTags',
-   'follow_tags:settings:title'  			=>'Follow Tags Settings',
+   'follow_tags:settings:minChar'			=>'Set min char for autocomplete',
+   'follow_tags:settings:threshold'			=>'Set threshold for autocomplete',
+   'follow_tags:settings:defaultTags'		=>'Set up some default tags',
+   'follow_tags:settings:title'  			=>'Follow tags settings',
    'follow_tags:settings:title:tags'		=>'Your tags',
    'follow_tags:settings:title:notify'   	=>'Notification settings',
    'follow_tags:settings:notify:description'=>'Notify me when related content is published.',

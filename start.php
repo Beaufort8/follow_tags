@@ -40,6 +40,7 @@ function followtags_init() {
 	//Register Pagehanlder for activty and follow-tags settings
 	elgg_register_page_handler('activity', 'followers_activity_page_handler');
 	elgg_register_page_handler('follow_tags', 'follow_tags_page_handler');
+	elgg_register_page_handler('follow_tags_data', 'follow_tags_data_handler');
 
 	//Register JS and CSS for custom taginput field
 	$js_url = 'mod/follow_tags/vendors/jquery.tagsinput.min.js';
@@ -62,6 +63,11 @@ function followtags_init() {
 	
 
 
+}
+
+function follow_tags_data_handler() {
+	echo getAllTags();
+	return true;
 }
 
 function followers_activity_page_handler($segments, $handle, $page) {
