@@ -248,6 +248,7 @@ function getAllTags(){
 		$options = array(
 			'limit'=>1000,
 			'threshold' => $threshold,
+            'tag_name' => 'tags',
 			);
 		$tags =elgg_get_tags($options);
 		
