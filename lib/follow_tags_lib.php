@@ -246,7 +246,7 @@ function getAllTags(){
 			'threshold' => $threshold,
 			);
 		$tags =elgg_get_tags($options);
-
+		
 		foreach ($tags as $tag) {
 			$text .= "$tag->tag,";
 		}

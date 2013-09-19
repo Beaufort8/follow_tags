@@ -59,6 +59,8 @@ function followtags_init() {
 	 
 	// Run the followtags_notofy function in event is triggerd
 	elgg_register_event_handler('create', 'object', 'followtags_notify', 501);
+	
+
 
 }
 
