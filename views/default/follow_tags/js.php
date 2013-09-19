@@ -1,20 +1,17 @@
 <?php
-<<<<<<< HEAD
-
   
   $minChar = elgg_get_plugin_setting("minChar", "follow_tags");  
    if(!$minChar) {
         $minChar = 2; // Set Default minChar
     }
 
-   ?>
-=======
+   
 $minChar = elgg_get_plugin_setting("minChar", "follow_tags");  
 if(!$minChar) {
 	$minChar = 2; // Set Default minChar
 }
 ?>
->>>>>>> dc8f0f4bdc54a9f86dd9d5603282910ffc2c173c
+
 elgg.provide('elgg.tags_input');
 
 elgg.tags_input.init = function() {
