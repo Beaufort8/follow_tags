@@ -222,10 +222,43 @@ function followtags_notify($event, $type, $object) {
 		//Create acceptor-Array
 		$toArray = explode(",",$to);
 
+		$creator_id = $ftObj->guid;
+		
+		$toArray = checkNotificationFriends($creator_id,$toArray);
+
+
 		// Notify user 
 		// 1 is sender id from the elgg site
-		notify_user($toArray, 1, $subject, $body, NULL);
+		
+		if(count($toArray) != 0){
+		notify_user($toArray, 1, $subject, $body, NULL);	
+		}
+		
 	}
+}
+
+/**
+ * Check if friends get notify 
+ *
+ */
+
+function checkNotificationFriends($creator_id,$toArray){
+
+ 	$newToArray ="";
+
+ 	foreach ($toArray as $to) {
+ 		
+ 		
+ 		if(!check_entity_relationship($to,'notifysite',$creator_id) && !check_entity_relationship($to,'notifymail',$creator_id)){
+
+ 			$newToArray .= "$to,";
+ 			
+ 		}
+ 	}
+
+	// Check if user want to notify by friends
+
+	return $newToArray;
 }
 
 /**
