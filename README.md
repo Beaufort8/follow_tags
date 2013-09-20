@@ -1,55 +1,33 @@
 # Follow Tags for Elgg 1.8
 
-
-Follow Tags is a plugin for Elgg to provide users the opportunity to follow Tags. 
-Users can select some tags and the activity stream only shows content wich is matching.
-Users get notified when matching content is published
+This plugin allow users to follow tags. Users can select any tag which is filtered and displayed in the Activity Stream. The user is notified when new content is matching.
 
 ## Features
 
-* Add 'My Tags'  tab at the activity-stream
-* User friendly tags-input-field with autocompletion
-* Add FollowTags menu-item  Settings sidebar-menu
-* Notifications. 
-* Language support (english/german)
+* Add 'My Tags' to the Activity tabs
+* Input-fields with user friendly autocompletion
+* User-notification
+* Language support en, de included
+* Version Elgg 1.8
 
 ## Installation
 
-Copy the Follow-Tags folder in your '/mod' directory and activate the plugin.
+Copy the plugin-folder in your '/mod' directory and activate the plugin.
 
-## Admin settings
+## Admin-settings
 
-##### Settings for autocomplete
+ * Enable/disable autocomplete for tag-fields
+ * minimum number of characters a user must type before a search is performed
+ * tag-threshold for autocomplete-selection
+ * additional default Tags for autocomplete
 
- * autocomplete  Enable or disable autocomplete for tags-ipnut
- * minChar The minimum number of characters a user must type before a search is performed
- * threshold  How many times a tag should be used
- * defaultTags  Default Tags for autocomplete
+## User-settings
 
-## User settings
-
-##### Autocomplete
-
-**My Tags** = Tags-input-field for setting up the FollowTags
- 
-**Notification** = User can select if they want to get notification 
-
-* FollowTags Notification use the user notification method(s).
+ * Follow Tags
+ * User can select if they want to get notification (FollowTags Notification use the user notification methods)
 
 ## ToDo
 
-##### Groups Notification 
-
-When new tagged content is added to a group where users are mebemers of. They should only notified once.
-Group Notification or Follow Tags Notification
-
-##### AJAX 
-
-
-
-
-
-
-
-
-
+ * When new tagged content is added to a group where users are mebemers of. They should only notified once.
+ * Group Notification or Follow Tags Notification
+ * Better Ajax-Support for autocomplete
