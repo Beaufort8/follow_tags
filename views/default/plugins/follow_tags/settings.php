@@ -41,5 +41,4 @@ echo elgg_echo('follow_tags:settings:defaultTags');
 echo elgg_view("input/text", array("name" => "params[defaultTags]", "value" => $vars['entity']->defaultTags));
 echo "</div>";
 
-?>
 
