@@ -7,9 +7,9 @@ Users can select some tags and the activity stream only shows content wich is ma
 ## Features
 
 * New activity-stream-tab 
-* New user-friendly tags input field with autocompletion
-* New Settings sidebar-menu for user
-* Notifications user get notified when matching content is published
+* New user friendly tags-input-field with autocompletion
+* New Settings sidebar-menu
+* Notifications. Users get notified when matching content is published
 * Language support (english/german)
 
 ## Installation
@@ -18,9 +18,9 @@ Copy the Follow-Tags folder in your '/mod' directory and activate the plugin.
 
 ## Admin settings
 
-##### Autocomplete
+##### Settings for autocomplete
 
-**Autocomplete** = Enable or disable autocomplete for tags-ipnut
+**autocomplete** = Enable or disable autocomplete for tags-ipnut
 
 **minChar** = The minimum number of characters a user must type before a search is performed
  
@@ -36,9 +36,7 @@ Copy the Follow-Tags folder in your '/mod' directory and activate the plugin.
  
 **Notification** = User can select if they want to get notification 
 
-* FollowTags Notification use the global user notification method(s).
-
-
+* FollowTags Notification use the user notification method(s).
 
 ## ToDo
 
@@ -47,13 +45,6 @@ Copy the Follow-Tags folder in your '/mod' directory and activate the plugin.
 When new tagged content is added to a group where users are mebemers of. They should only notified once.
 Group Notification or Follow Tags Notification
 
-
-
-## Copyrights 
-
-![Mou icon](http://www.beaufort8.de/wp-content/themes/b812/img/intro1_logo.png)
-
-[Beaufort 8 GmbH](http://beaufort8.de)
 
 
 
