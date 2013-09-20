@@ -28,7 +28,7 @@ $activity = getActivityFollowTags($options);
 if(!$activity){
 
 	$content = "";
-			
+	$content .= elgg_view('core/river/filter', array('selector' => $selector));		
 	$activity = '<div class="emptynotice">';
 	$activity .= elgg_echo('follow_tags:notags') . ' ';
 	$activity .= elgg_view('output/url', array(
