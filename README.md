@@ -28,6 +28,5 @@ Copy the plugin-folder in your '/mod' directory and activate the plugin.
 
 ## ToDo
 
- * When new tagged content is added to a group where users are mebemers of. They should only notified once.
- * Group Notification or Follow Tags Notification
+ * When new tagged content is added to a group where users are mebemers of. They should only notified once. Group Notification or Follow Tags Notification
  * Better Ajax-Support for autocomplete
