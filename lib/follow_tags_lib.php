@@ -306,7 +306,7 @@ function getAllTags(){
 
 
 function getActivityFollowTags($options){
-
+	global $CONFIG;
 	$tags = get_metadata_byname (getID(elgg_get_logged_in_user_guid()),'tags');
 	$cnt = 0;
 
@@ -345,7 +345,7 @@ function getActivityFollowTags($options){
 	$user = $user->username;
 		if(count($tags)!= 0 ){
 		
-			$sql_where ="object_guid IN ( SELECT  entity_guid FROM elgg_metadata WHERE $value_ids  ) AND action_type = 'create'";
+			$sql_where ="object_guid IN (  SELECT  entity_guid FROM {$CONFIG->dbprefix}metadata WHERE $value_ids  ) AND action_type = 'create'";
 			$options['wheres'] = array($sql_where);
 		
 		
@@ -359,7 +359,7 @@ function getActivityFollowTags($options){
 		$user = $user->username;
 		if(count($tags)!= 0 ){
 	
-			$sql_where ="object_guid IN ( SELECT  entity_guid FROM elgg_metadata WHERE $value_ids  ) AND action_type = 'create'";
+			$sql_where ="object_guid IN ( SELECT  entity_guid FROM {$CONFIG->dbprefix}metadata WHERE $value_ids  ) AND action_type = 'create'";
 			$options['wheres'] = array($sql_where);
 	
 			$activity = elgg_list_river($options);
