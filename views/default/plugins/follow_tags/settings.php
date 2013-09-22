@@ -8,6 +8,7 @@
 );
 
 $char_options = array(
+		"0" => elgg_echo("0"),
 		"1" => elgg_echo("1"),
 		"2" => elgg_echo("2"),
 		"3" => elgg_echo("3"),

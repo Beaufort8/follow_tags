@@ -275,7 +275,7 @@ function getAllTags(){
 		$threshold = elgg_get_plugin_setting("threshold", "follow_tags");  
 		if(!$threshold) {
 			// Set Default threshold
-			$threshold = 2; 
+			$threshold = 0; 
 		}
 
 		$options = array(
@@ -288,8 +288,18 @@ function getAllTags(){
 		foreach ($tags as $tag) {
 			$json[]=$tag->tag;
 		}
-		$json = array_merge($json, explode(",",elgg_get_plugin_setting("defaultTags", "follow_tags")));
+		
+		$deftags = explode(",",elgg_get_plugin_setting("defaultTags", "follow_tags"));
+		if($deftags) {
+			if($json) {
+				$json = array_merge($deftags,$json);
+			} else {
+				$json = $deftags;
+			}
+		}
+		sort($json);
 		$json = json_encode($json);
+		
 	}
 	return $json;
 }
