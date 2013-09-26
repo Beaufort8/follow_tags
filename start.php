@@ -1,12 +1,11 @@
 <?php
 
+require_once(dirname(__FILE__) . "/lib/functions.php");
+
 elgg_register_event_handler('init', 'system', 'follow_tags_init');
 
 function follow_tags_init() {
-	//Register Libary File
-	elgg_register_library('follow_tags', dirname(__FILE__) . '/lib/follow_tags_lib.php');
-	elgg_load_library('follow_tags');
-
+	
 	//Register Save Action for saving and changing FollowTags
 	elgg_register_action("follow_tags/save", dirname(__FILE__) . '/action/save.php');
 
