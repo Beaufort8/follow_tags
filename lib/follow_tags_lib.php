@@ -304,6 +304,10 @@ function getAllTags(){
 	return $json;
 }
 
+/**
+ * Get Activity Items
+ *
+ */
 
 function getActivityFollowTags($options){
 	global $CONFIG;
@@ -368,6 +372,11 @@ function getActivityFollowTags($options){
 		}
 
 }
+
+/**
+ * Return the FollowTagForm 
+ *
+ */
 
 function getFollowTagsForm(){
  	

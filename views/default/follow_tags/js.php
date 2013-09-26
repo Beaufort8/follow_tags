@@ -4,12 +4,6 @@
    if(!$minChar) {
         $minChar = 2; // Set Default minChar
     }
-
-   
-$minChar = elgg_get_plugin_setting("minChar", "follow_tags");  
-if(!$minChar) {
-	$minChar = 2; // Set Default minChar
-}
 ?>
 
 elgg.provide('elgg.tags_input');
