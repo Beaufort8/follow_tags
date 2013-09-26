@@ -6,7 +6,8 @@
 */
 
 $german = array(
-
+	'river:tags' => 'Aktivität - Tags',
+		
    'follow_tags:title'           		    => 'Folge Tags',
    'follow_tags:sidebar:title'  		    => 'Folge Tags Einstellungen',
 

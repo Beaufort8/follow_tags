@@ -6,6 +6,8 @@
 */
 
 $english = array(
+	'river:tags' => 'Activity - Tags',
+		
    'follow_tags:title'           		    => 	'Follow tags',
    'follow_tags:sidebar:title'  		    => 	'Follow tags settings',
 
