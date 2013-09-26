@@ -5,14 +5,7 @@ $yesno_options = array(
 		"no" => elgg_echo("option:no")
 );
 
-$char_options = array(
-		"0" => elgg_echo("0"),
-		"1" => elgg_echo("1"),
-		"2" => elgg_echo("2"),
-		"3" => elgg_echo("3"),
-		"4" => elgg_echo("4"),
-		"5" => elgg_echo("5"),
-);
+$char_options = range(0,5);
 
 echo "<div>";
 echo elgg_echo('follow_tags:settings:autocomplete');
