@@ -7,13 +7,13 @@
  */
 
 //Get current Tags from logged in User and Notify value
-$value = getCurrentTagsFrom(elgg_get_logged_in_user_guid());
-$check =getNotificationSettings(getID(elgg_get_logged_in_user_guid()));
+$value = follow_tags_get_current_tags(elgg_get_logged_in_user_guid());
+$check = follow_tags_get_notification_settings(follow_tags_get_tag_guid(elgg_get_logged_in_user_guid()));
 
 	
 //Create Views Elements
 $save_btn = elgg_view('input/submit', array(
-	'value' => elgg_echo('save'),	
+	'value' => elgg_echo('save'),
 	'class' => 'elgg-button-submit ',
 	));
 $follow_tags = elgg_view('input/tags', array(

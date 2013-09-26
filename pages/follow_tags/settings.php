@@ -7,8 +7,8 @@
  */
 
 //Create a FollowTagsObject if logged in user have none
-if(!existFollowTagObject(elgg_get_logged_in_user_guid())){
-		createFollowTagObject();
+if (!follow_tags_has_follow_tag_object(elgg_get_logged_in_user_guid())) {
+	follow_tags_create_follow_tag_object();
 }
 
 $title = elgg_echo('follow_tags:settings:title');

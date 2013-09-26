@@ -7,7 +7,7 @@
  */
 
 //Get current Tags from logged in User
-$value = getCurrentTagsFrom(elgg_get_logged_in_user_guid());
+$value = follow_tags_get_current_tags(elgg_get_logged_in_user_guid());
 
 $user = elgg_get_logged_in_user_entity();
 $username = $user->username;

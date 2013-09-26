@@ -23,12 +23,12 @@ if ($type != 'all') {
 
 $title = elgg_echo('river:tags');
 
-$activity = getActivityFollowTags($options);
+$activity = follow_tags_get_activity_follow_tags($options);
 
 if(!$activity){
 
 	$content = "";
-	$content .= elgg_view('core/river/filter', array('selector' => $selector));		
+	$content .= elgg_view('core/river/filter', array('selector' => $selector));
 	$activity = '<div class="emptynotice">';
 	$activity .= elgg_echo('follow_tags:notags') . ' ';
 	$activity .= elgg_view('output/url', array(
@@ -40,7 +40,7 @@ if(!$activity){
 }
 
 //Get Edit Button and Current Tags
-$content = getFollowTagsForm();
+$content = elgg_view_form('follow_tags/activity');
 
 //Get Riverfilter
 $content .= elgg_view('core/river/filter', array('selector' => $selector));
