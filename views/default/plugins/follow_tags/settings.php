@@ -1,8 +1,8 @@
 <?php
 
 $yesno_options = array(
-		"yes" => elgg_echo("follow_tags:option:yes"),
-		"no" => elgg_echo("follow_tags:option:no")
+		"yes" => elgg_echo("option:yes"),
+		"no" => elgg_echo("option:no")
 );
 
 $char_options = array(
