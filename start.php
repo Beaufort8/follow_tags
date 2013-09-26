@@ -31,12 +31,9 @@ function follow_tags_init() {
 		));
 	}
 
-	//Get de default Acitvity Page Handler
-	global $CONFIG, $default_activity_page_handler;
-	$default_activity_page_handler = $CONFIG->pagehandler['activity'];
-
-	//Register Pagehanlder for activty and follow-tags settings
-	elgg_register_page_handler('activity', 'follow_tags_activity_page_handler');
+	elgg_register_plugin_hook_handler("route", "activity", "follow_tags_route_activity_hook");
+	
+	//Register Pagehandlers
 	elgg_register_page_handler('follow_tags', 'follow_tags_page_handler');
 	elgg_register_page_handler('follow_tags_data', 'follow_tags_data_page_handler');
 
@@ -65,17 +62,18 @@ function follow_tags_data_page_handler() {
 	return true;
 }
 
-function follow_tags_activity_page_handler($segments, $handle, $page) {
-	switch ($segments[0]) {
-		case 'tags':
-			require_once dirname(__FILE__) . '/pages/activity/follow_tags.php';
-			break;
-		default:
-			//Use the default activity pagehandler
-			global $default_activity_page_handler;
-			return call_user_func($default_activity_page_handler, $segments, $handle);
-			break;
+function follow_tags_route_activity_hook($hook, $type, $return_value, $params) {
+	$result = $return_value;
+	
+	if ($page = elgg_extract("segments", $return_value)){
+		if (elgg_extract(0, $page) == "tags") {
+			include(dirname(__FILE__) . '/pages/activity/follow_tags.php');
+			
+			$result = false; // block other page handlers
+		}
 	}
+	
+	return $result;
 }
 
 function follow_tags_page_handler($page){
