@@ -1,9 +1,9 @@
 <?php
 
-elgg_register_event_handler('init', 'system', 'followtags_init');
+elgg_register_event_handler('init', 'system', 'follow_tags_init');
 
-function followtags_init() {
-	//Register Libary File 
+function follow_tags_init() {
+	//Register Libary File
 	elgg_register_library('follow_tags', dirname(__FILE__) . '/lib/follow_tags_lib.php');
 	elgg_load_library('follow_tags');
 
@@ -29,18 +29,16 @@ function followtags_init() {
 			'href' => "follow_tags/settings/" . $user->username,
 			'context' => "settings",
 		));
-
 	}
 
 	//Get de default Acitvity Page Handler
 	global $CONFIG, $default_activity_page_handler;
 	$default_activity_page_handler = $CONFIG->pagehandler['activity'];
 
-
 	//Register Pagehanlder for activty and follow-tags settings
-	elgg_register_page_handler('activity', 'followers_activity_page_handler');
+	elgg_register_page_handler('activity', 'follow_tags_activity_page_handler');
 	elgg_register_page_handler('follow_tags', 'follow_tags_page_handler');
-	elgg_register_page_handler('follow_tags_data', 'follow_tags_data_handler');
+	elgg_register_page_handler('follow_tags_data', 'follow_tags_data_page_handler');
 
 	//Register JS and CSS for custom taginput field
 	$js_url = 'mod/follow_tags/vendors/jquery.tagsinput.min.js';
@@ -55,28 +53,25 @@ function followtags_init() {
 	// Add a JavaScript Initialization
 	elgg_extend_view('js/elgg','follow_tags/js');
 	
-	//Trigger all Create Events for the Notification 
+	//Trigger all Create Events for the Notification
 	elgg_trigger_event('create', 'object', $object);
 	 
 	// Run the followtags_notofy function in event is triggerd
 	elgg_register_event_handler('create', 'object', 'followtags_notify', 501);
-	
-
-
 }
 
-function follow_tags_data_handler() {
+function follow_tags_data_page_handler() {
 	echo getAllTags();
 	return true;
 }
 
-function followers_activity_page_handler($segments, $handle, $page) {
+function follow_tags_activity_page_handler($segments, $handle, $page) {
 	switch ($segments[0]) {
 		case 'tags':
 			require_once dirname(__FILE__) . '/pages/activity/follow_tags.php';
 			break;
 		default:
-			//Use the default activity pagehandler 
+			//Use the default activity pagehandler
 			global $default_activity_page_handler;
 			return call_user_func($default_activity_page_handler, $segments, $handle);
 			break;
