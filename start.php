@@ -50,9 +50,6 @@ function follow_tags_init() {
 	
 	// Add a JavaScript Initialization
 	elgg_extend_view('js/elgg','js/follow_tags/site');
-	
-	//Trigger all Create Events for the Notification
-	elgg_trigger_event('create', 'object', $object);
 	 
 	// Run the followtags_notofy function in event is triggerd
 	elgg_register_event_handler('create', 'object', 'followtags_notify', 501);
