@@ -1,67 +1,125 @@
+ul.tagit {
+    padding: 1px 5px;
+    overflow: auto;
+    margin-left: inherit; /* usually we don't want the regular ul margins. */
+    margin-right: inherit;
+}
+ul.tagit li {
+    display: block;
+    float: left;
+    margin: 2px 5px 2px 0;
+}
+ul.tagit li.tagit-choice {    
+    position: relative;
+    line-height: inherit;
+}
 
-div.tagsinput {
+ul.tagit li.tagit-choice-read-only { 
+    padding: .2em .5em .2em .5em; 
+} 
 
-padding: 1px 5px 2px 5px;
-border:1px solid #CCC;
--moz-border-radius:5px;
--webkit-border-radius:5px;
-background:#FFF;
-width:300px;
-height:100px;
-overflow-y:auto;
+ul.tagit li.tagit-choice-editable { 
+    padding: .2em 18px .2em .5em; 
+} 
 
+ul.tagit li.tagit-new {
+    padding: .25em 4px .25em 0;
+}
 
+ul.tagit li.tagit-choice a.tagit-label {
+    cursor: pointer;
+    text-decoration: none;
+}
+ul.tagit li.tagit-choice .tagit-close {
+    cursor: pointer;
+    position: absolute;
+    right: .1em;
+    top: 50%;
+    margin-top: -8px;
+    line-height: 17px;
+}
+
+/* used for some custom themes that don't need image icons */
+ul.tagit li.tagit-choice .tagit-close .text-icon {
+    display: none;
+}
+
+ul.tagit li.tagit-choice input {
+    display: block;
+    float: left;
+    margin: 2px 5px 2px 0;
+}
+ul.tagit input[type="text"] {
+    -moz-box-sizing:    border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing:         border-box;
+
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: inherit;
+    background-color: inherit;
+    outline: none;
 }
 
 
-div.tagsinput span.tag {
+/* Optional scoped theme for tag-it which mimics the zendesk widget. */
 
-float:left;
-text-decoration:none;
-font-family: 'Source Sans Pro', "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, Tahoma, Helvetica, sans-serif;
-color:#555;
-background: rgba(0, 0, 0, 0.02);
-border-radius: 3px;
-border: 1px solid rgba(0, 0, 0, 0.1);
-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.03);
-display: inline-block;
-font-size: 14px;
-margin:4px 4px 5px 0px;
-padding: 1px 6px 0px;
 
+ul.tagit {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #C6C6C6;
+    background: inherit;
+}
+ul.tagit li.tagit-choice {
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border: 1px solid #CAD8F3;
+
+    background: none;
+    background-color: #DEE7F8;
+
+    font-weight: normal;
+}
+ul.tagit li.tagit-choice .tagit-label:not(a) {
+    color: #555;
+}
+ul.tagit li.tagit-choice a.tagit-close {
+    text-decoration: none;
+}
+ul.tagit li.tagit-choice .tagit-close {
+    right: .4em;
+}
+ul.tagit li.tagit-choice .ui-icon {
+    display: none;
+}
+ul.tagit li.tagit-choice .tagit-close .text-icon {
+    display: inline;
+    font-family: arial, sans-serif;
+    font-size: 16px;
+    line-height: 16px;
+    color: #777;
+}
+ul.tagit li.tagit-choice:hover, ul.tagit li.tagit-choice.remove {
+    background-color: #bbcef1;
+    border-color: #6d95e0;
+}
+ul.tagit li.tagit-choice a.tagLabel:hover,
+ul.tagit li.tagit-choice a.tagit-close .text-icon:hover {
+    color: #222;
+}
+ul.tagit input[type="text"] {
+    color: #333333;
+    background: none;
+}
+.ui-widget {
+    font-size: 1.1em;
 }
 
-
-
-div.tagsinput input {
-font-family: 'Source Sans Pro', "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, Tahoma, Helvetica, sans-serif;
-width:auto;
-font-size:14px;
-border:0px solid transparent;
-background:white;
-color: #bbb;
-outline:0;
-padding:5px;
-margin: 4px 0 4px 0;
-height: 21px;
-
-}
-
-
-div.tagsinput div {
-display:block;
-float:left;
-}
-
-.tags_clear {
-clear:both;
-width:100%;
-height:0;
-}
-
-.not_valid {
-	background: none !important;
-	color: rgb(197, 0, 14) !important;
-	min-width:240px !important;
-}
 

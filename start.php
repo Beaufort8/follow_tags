@@ -1,12 +1,11 @@
 <?php
 
-elgg_register_event_handler('init', 'system', 'followtags_init');
+require_once(dirname(__FILE__) . "/lib/functions.php");
 
-function followtags_init() {
-	//Register Libary File 
-	elgg_register_library('follow_tags', dirname(__FILE__) . '/lib/follow_tags_lib.php');
-	elgg_load_library('follow_tags');
+elgg_register_event_handler('init', 'system', 'follow_tags_init');
 
+function follow_tags_init() {
+	
 	//Register Save Action for saving and changing FollowTags
 	elgg_register_action("follow_tags/save", dirname(__FILE__) . '/action/save.php');
 
@@ -29,58 +28,52 @@ function followtags_init() {
 			'href' => "follow_tags/settings/" . $user->username,
 			'context' => "settings",
 		));
-
 	}
 
-	//Get de default Acitvity Page Handler
-	global $CONFIG, $default_activity_page_handler;
-	$default_activity_page_handler = $CONFIG->pagehandler['activity'];
-
-
-	//Register Pagehanlder for activty and follow-tags settings
-	elgg_register_page_handler('activity', 'followers_activity_page_handler');
+	elgg_register_plugin_hook_handler("route", "activity", "follow_tags_route_activity_hook");
+	
+	//Register Pagehandlers
 	elgg_register_page_handler('follow_tags', 'follow_tags_page_handler');
-	elgg_register_page_handler('follow_tags_data', 'follow_tags_data_handler');
+	elgg_register_page_handler('follow_tags_data', 'follow_tags_data_page_handler');
 
 	//Register JS and CSS for custom taginput field
 	$js_url = 'mod/follow_tags/vendors/jquery.tagsinput.min.js';
-	elgg_register_js('taginput', $js_url, 'footer');
-	elgg_load_js('taginput');
+	elgg_register_js('jquery.tagsinput', $js_url, 'footer');
 	
 	// Register CSS for TagInput
 	$css_url = 'mod/follow_tags/vendors/jquery.tagsinput.css';
-	elgg_register_css('special', $css_url);
-	elgg_load_css('special');
+	elgg_register_css('jquery.tagsinput', $css_url);
+	
+	// extend tags to include js/css just in time
+	elgg_extend_view("input/tags", "follow_tags/extends/tags");
 	
 	// Add a JavaScript Initialization
-	elgg_extend_view('js/elgg','follow_tags/js');
-	
-	//Trigger all Create Events for the Notification 
-	elgg_trigger_event('create', 'object', $object);
+	elgg_extend_view('js/elgg','js/follow_tags/site');
 	 
 	// Run the followtags_notofy function in event is triggerd
-	elgg_register_event_handler('create', 'object', 'followtags_notify', 501);
+	elgg_register_event_handler('create', 'object', 'follow_tags_notify', 501);
 	
-
-
+	
+	
 }
 
-function follow_tags_data_handler() {
-	echo getAllTags();
+function follow_tags_data_page_handler() {
+	echo follow_tags_get_all_tags(50);
 	return true;
 }
 
-function followers_activity_page_handler($segments, $handle, $page) {
-	switch ($segments[0]) {
-		case 'tags':
-			require_once dirname(__FILE__) . '/pages/activity/follow_tags.php';
-			break;
-		default:
-			//Use the default activity pagehandler 
-			global $default_activity_page_handler;
-			return call_user_func($default_activity_page_handler, $segments, $handle);
-			break;
+function follow_tags_route_activity_hook($hook, $type, $return_value, $params) {
+	$result = $return_value;
+	
+	if ($page = elgg_extract("segments", $return_value)){
+		if (elgg_extract(0, $page) == "tags") {
+			include(dirname(__FILE__) . '/pages/activity/follow_tags.php');
+			
+			$result = false; // block other page handlers
+		}
 	}
+	
+	return $result;
 }
 
 function follow_tags_page_handler($page){
