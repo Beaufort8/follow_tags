@@ -6,19 +6,17 @@
 */
 
 $german = array(
-
+	'river:tags' => 'Aktivität - Tags',
+		
    'follow_tags:title'           		    => 'Folge Tags',
    'follow_tags:sidebar:title'  		    => 'Folge Tags Einstellungen',
 
    'follow_tags:tab:title'					=> 'Meine Tags',
    'follow_tags:noactivity'					=> 'Keine Aktivität',
         
-   'follow_tags:save:error'					=> 'Keine Tags gespeichert!', 
-   'follow_tags:save:message'				=> 'Tags gespeichert!', 
+   'follow_tags:save:error'					=> 'Keine Tags gespeichert!',
+   'follow_tags:save:message'				=> 'Tags gespeichert!',
    'follow_tags:tags_input:add'				=> 'Tag hinzufügen',
-    
-   'follow_tags:option:yes'					=>'Ja',
-   'follow_tags:option:no'					=>'Nein',
   
    'follow_tags:settings:autocomplete'		=>'Autocomplete',
    'follow_tags:settings:minChar'			=>'Set min Char for Autocomplete',

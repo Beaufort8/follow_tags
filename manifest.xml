@@ -11,6 +11,5 @@
                 <type>elgg_release</type>
                 <version>1.8</version>
         </requires>
-        <activate_on_install>false</activate_on_install>
         <category>social</category>
 </plugin_manifest>

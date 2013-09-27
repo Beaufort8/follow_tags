@@ -5,20 +5,19 @@
 *
 */
 
-$english = array(   
+$english = array(
+	'river:tags' => 'Activity - Tags',
+		
    'follow_tags:title'           		    => 	'Follow tags',
    'follow_tags:sidebar:title'  		    => 	'Follow tags settings',
 
    'follow_tags:tab:title'					=> 'My tags',
    'follow_tags:noactivity'					=> 'No activity',
         
-   'follow_tags:save:error'					=> 'No tags saved!', 
-   'follow_tags:save:message'				=> 'Tags are saved!', 
+   'follow_tags:save:error'					=> 'No tags saved!',
+   'follow_tags:save:message'				=> 'Tags are saved!',
    'follow_tags:tags_input:add'				=> 'Add a tag',
     
-   'follow_tags:option:yes'					=>'Yes',
-   'follow_tags:option:no'					=>'No',
-  
    'follow_tags:settings:autocomplete'		=>'Autocomplete',
    'follow_tags:settings:minChar'			=>'Set min char for autocomplete',
    'follow_tags:settings:threshold'			=>'Set threshold for autocomplete',
