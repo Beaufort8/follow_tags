@@ -6,9 +6,9 @@ This plugin allow users to follow tags. Users can select any tag which is filter
 
 * Add 'My Tags' to the Activity tabs
 * Input-fields with user friendly autocompletion
-* User-notification
+* User-notification for new matched content
 * Language support en, de included
-* Version Elgg 1.8
+* Tested on version Elgg 1.8.16
 
 ## Installation
 
@@ -16,7 +16,6 @@ Copy the plugin-folder in your '/mod' directory and activate the plugin.
 
 ### Admin-settings
 
- * Enable/disable autocomplete for tag-fields
  * minimum number of characters a user must type before a search is performed
  * tag-threshold for autocomplete-selection
  * additional default Tags for autocomplete
@@ -28,5 +27,5 @@ Copy the plugin-folder in your '/mod' directory and activate the plugin.
 
 ### ToDo
 
- * When new tagged content is added to a group where users are mebemers of. They should only notified once. Group Notification or Follow Tags Notification
- * Better Ajax-Support for autocomplete
+ * prevent double notification on Groups (only Group-Notification)
+ * Ajax-Support for autocomplete

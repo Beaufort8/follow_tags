@@ -10,15 +10,13 @@ $minChar = elgg_get_plugin_setting("minChar", "follow_tags");
 elgg.provide('elgg.tags_input');
 
 elgg.tags_input.init = function() {
-	var availableTags = <?php echo follow_tags_get_all_tags(50); ?>	
 	$('.elgg-input-tags').each(function(){
-		$(this).attr("placeholder","add a tag");
-		$(this).tagit({
-			autocomplete: {
-				delay: 0, 
-				minLength: <?php echo $minChar ?>, 
-				source:availableTags,
-				}
+		var el = $(this);
+		$.getJSON( '<?php echo elgg_get_site_url(); ?>follow_tags_data', function( tags ) {	
+			$(el).tagit({
+				placeholderText: '<?php echo elgg_echo("follow_tags:tags_input:add"); ?>',
+				availableTags: tags
+			});
 		});
 	});
 }
