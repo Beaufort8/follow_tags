@@ -52,10 +52,13 @@ function follow_tags_init() {
 	 
 	// Run the followtags_notofy function in event is triggerd
 	elgg_register_event_handler('create', 'object', 'follow_tags_notify', 501);
+	
+	
+	
 }
 
 function follow_tags_data_page_handler() {
-	echo follow_tags_get_all_tags();
+	echo follow_tags_get_all_tags(50);
 	return true;
 }
 

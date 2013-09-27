@@ -263,44 +263,42 @@ function follow_tags_check_notification_friends($creator_id,$toArray){
 /**
  * Return all Site Tags for jQuery Tags Inpug plugin
  * see
- * https://github.com/xoxco/jQuery-Tags-Input
- * for Examples
- * https://github.com/xoxco/jQuery-Tags-Input/tree/master/test
- *
+ * https://github.com/aehlke/tag-it
+ * 
+ * 
  */
 
-function follow_tags_get_all_tags() {
-	if (elgg_get_plugin_setting("autocomplete", "follow_tags") == 'yes'){
-		$threshold = elgg_get_plugin_setting("threshold", "follow_tags");
-		if (!$threshold) {
-			// Set Default threshold
-			$threshold = 0;
-		}
+function follow_tags_get_all_tags($limit) {
 
-		$options = array(
-			'limit' => false,
-			'threshold' => $threshold,
-            'tag_name' => 'tags',
-			);
-		
-		$tags = elgg_get_tags($options);
-		
-		foreach ($tags as $tag) {
-			$json[]=$tag->tag;
-		}
-		
-		$deftags = explode(",", elgg_get_plugin_setting("defaultTags", "follow_tags"));
-		if ($deftags) {
-			if($json) {
-				$json = array_merge($deftags,$json);
-			} else {
-				$json = $deftags;
-			}
-		}
-		sort($json);
-		$json = json_encode($json);
-		
+	$threshold = elgg_get_plugin_setting("threshold", "follow_tags");
+	if (!$threshold) {
+		// Set Default threshold
+		$threshold = 0;
 	}
+
+	$options = array(
+		'limit' => $limit,
+		'threshold' => $threshold,
+        'tag_name' => 'tags',
+		);
+		
+	$tags = elgg_get_tags($options);
+	
+	
+	foreach ($tags as $tag) {
+		$json[]=$tag->tag;
+	}
+		
+	$deftags = elgg_get_plugin_setting("defaultTags", "follow_tags");
+	
+	if (!empty($deftags)) {
+     
+     $deftags = explode(",",$deftags);
+	 $json = array_merge($deftags,$json);
+	
+	}
+
+	$json = json_encode($json);
 	
 	return $json;
 }

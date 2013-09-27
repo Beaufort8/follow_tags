@@ -8,11 +8,6 @@ $yesno_options = array(
 $char_options = range(0,5);
 
 echo "<div>";
-echo elgg_echo('follow_tags:settings:autocomplete');
-echo elgg_view("input/dropdown", array("name" => "params[autocomplete]", "options_values" => $yesno_options, "value" => $vars['entity']->autocomplete));
-echo "</div>";
-
-echo "<div>";
 echo elgg_echo('follow_tags:settings:minChar');
 echo elgg_view("input/dropdown", array("name" => "params[minChar]", "options_values" => $char_options, "value" => $vars['entity']->minChar));
 echo "</div>";

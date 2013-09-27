@@ -18,7 +18,6 @@ $german = array(
    'follow_tags:save:message'				=> 'Tags gespeichert!',
    'follow_tags:tags_input:add'				=> 'Tag hinzufügen',
   
-   'follow_tags:settings:autocomplete'		=>'Autocomplete',
    'follow_tags:settings:minChar'			=>'Set min Char for Autocomplete',
    'follow_tags:settings:threshold'			=>'Set threshold for Autocomplete',
    'follow_tags:settings:defaultTags'		=>'Set up some defaultTags',
