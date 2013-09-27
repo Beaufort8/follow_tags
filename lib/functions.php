@@ -246,12 +246,8 @@ function follow_tags_check_notification_friends($creator_id,$toArray){
  	$newToArray ="";
 
  	foreach ($toArray as $to) {
- 		
- 		
  		if(!check_entity_relationship($to,'notifysite',$creator_id) && !check_entity_relationship($to,'notifymail',$creator_id)){
-
  			$newToArray .= "$to,";
- 			
  		}
  	}
 
@@ -317,15 +313,12 @@ function follow_tags_get_activity_follow_tags($options){
 			break;
 
 		case 1:
-		
 			$tagid = $tags['value_id'];
 			$value_ids = "value_id = $tagid";
-
 			break;
 	
 		default:
 			foreach ($tags as $tag) {
-			
 				$tagid = $tag['value_id'];
 				$cnt++;
 				if ($cnt != count($tags)) {
@@ -335,7 +328,7 @@ function follow_tags_get_activity_follow_tags($options){
 					$value_ids .= "value_id = $tagid";
 				}
 			}
-			 break;
+			break;
 	}
 
 	//Check if the user have any FollowTags
@@ -350,18 +343,4 @@ function follow_tags_get_activity_follow_tags($options){
 	}
 	
 	return $activity;
-	// @todo the following code will never be executed is that intended?
-	
-	//Check if the user have any FollowTags
-	$user = elgg_get_logged_in_user_entity();
-	$user = $user->username;
-	if(count($tags)!= 0 ){
-
-		$sql_where ="object_guid IN ( SELECT  entity_guid FROM {$dbprefix}metadata WHERE $value_ids  ) AND action_type = 'create'";
-		$options['wheres'] = array($sql_where);
-
-		$activity = elgg_list_river($options);
-
-		return $activity;
-	}
 }
