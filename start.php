@@ -37,11 +37,11 @@ function follow_tags_init() {
 	elgg_register_page_handler('follow_tags_data', 'follow_tags_data_page_handler');
 
 	//Register JS and CSS for custom taginput field
-	$js_url = 'mod/follow_tags/vendors/jquery.tagsinput.min.js';
+	$js_url = 'mod/follow_tags/vendors/tag-it.min.js';
 	elgg_register_js('jquery.tagsinput', $js_url, 'footer');
 	
 	// Register CSS for TagInput
-	$css_url = 'mod/follow_tags/vendors/jquery.tagsinput.css';
+	$css_url = 'mod/follow_tags/vendors/tag-it.css';
 	elgg_register_css('jquery.tagsinput', $css_url);
 	
 	// extend tags to include js/css just in time
