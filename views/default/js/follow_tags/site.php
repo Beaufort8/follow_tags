@@ -14,17 +14,17 @@ $tagLimit = elgg_get_plugin_setting("tagLimit", "follow_tags");
 	
 $removeConfirmation = elgg_get_plugin_setting("removeConfirmation", "follow_tags");
 	if(!$removeConfirmation) {
-		$removeConfirmation	 = true; // Set Default minChar
+		$removeConfirmation	 = "true"; // Set Default minChar
 	}
 	
 $caseSensitive = elgg_get_plugin_setting("caseSensitive", "follow_tags");
 	if(!$caseSensitive) {
-		$caseSensitive	 = true; // Set Default minChar
+		$caseSensitive	 = "true"; // Set Default minChar
 	}
 	
 $allowSpaces = elgg_get_plugin_setting("allowSpaces", "follow_tags");
 	if(!$allowSpaces) {
-		$allowSpaces	 = false; // Set Default minChar
+		$allowSpaces	 = "false"; // Set Default minChar
 	}
 ?>
 
@@ -39,7 +39,7 @@ elgg.tags_input.init = function() {
 				availableTags: tags,
 				autocomplete: {delay: 0, minLength: <?php echo $minChar; ?>},
 				tagLimit: '<?php echo $tagLimit; ?>',
-				removeConfirmation: '<?php echo $removeConfirmation; ?>',	
+				removeConfirmation: <?php echo $removeConfirmation; ?>,	
 				caseSensitive: <?php echo $caseSensitive;  ?>,
 				allowSpaces: <?php echo $allowSpaces; ?>,
 
