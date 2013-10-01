@@ -22,7 +22,7 @@ $caseSensitive = elgg_view("input/dropdown", array("name" => "params[caseSensiti
 $allowSpaces = elgg_view("input/dropdown", array("name" => "params[allowSpaces]", "options_values" => $yesno_options, "value" => $vars['entity']->allowSpaces));
 
 // generate output
-$body ="<table class='elgg-table-alt'>";
+$body ="<table class='elgg-table'>";
 	$body.="<tr><td>". elgg_echo('follow_tags:settings:minChar')."</td><td>".$threshold."</td></tr>";	
 	$body.="<tr><td>". elgg_echo('follow_tags:settings:threshold')."</td><td>".$threshold."</td></tr>";	
 	$body.="<tr><td>". elgg_echo('follow_tags:settings:tagLimit')."</td><td>".$tagLimit."</td></tr>";	
