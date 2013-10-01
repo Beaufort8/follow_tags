@@ -18,7 +18,12 @@ Copy the plugin-folder in your '/mod' directory and activate the plugin.
 
  * minimum number of characters a user must type before a search is performed
  * tag-threshold for autocomplete-selection
+ * total number of tags
+ * removeConfirmation press the backspace key twice to remove the last tag
+ * caseSensitive for tags
+ * allow Spaces in a tag	
  * additional default Tags for autocomplete
+ 
 
 ### User-settings
 
@@ -29,3 +34,9 @@ Copy the plugin-folder in your '/mod' directory and activate the plugin.
 
  * prevent double notification on Groups (only Group-Notification)
  * Ajax-Support for autocomplete
+ 
+ 
+
+
+	
+
