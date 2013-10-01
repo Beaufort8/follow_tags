@@ -350,3 +350,17 @@ function follow_tags_get_activity_follow_tags($options){
 	
 	return $activity;
 }
+
+/**
+ * Clear Cache after setting change
+ *
+ */
+
+function follow_tags_setting($hook_name, $entity_type, $return_value, $params) {
+       if (!empty($params)  && is_array($params)) {
+            if (($plugin = elgg_extract("plugin", $params)) && ($plugin->getID() == "your_plugin_name")) {
+                
+                elgg_invalidate_simplecache();
+            }
+        }
+}

@@ -6,6 +6,9 @@ elgg_register_event_handler('init', 'system', 'follow_tags_init');
 
 function follow_tags_init() {
 	
+	// Register Cache-Clear hook after change admin settig
+	elgg_register_plugin_hook_handler("setting", "plugin", "follow_tags_setting");
+	
 	//Register Save Action for saving and changing FollowTags
 	elgg_register_action("follow_tags/save", dirname(__FILE__) . '/action/save.php');
 
