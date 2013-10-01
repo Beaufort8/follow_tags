@@ -291,10 +291,16 @@ function follow_tags_get_all_tags($limit) {
      
      $deftags = explode(",",$deftags);
 	 $json = array_merge($deftags,$json);
-	
+	 
 	}
 
-	$json = json_encode($json);
+	if ($json) {
+		$json = json_encode($json);
+	}else {
+	  $json = "[]";
+	}
+	
+	
 	
 	return $json;
 }
