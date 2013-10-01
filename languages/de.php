@@ -6,7 +6,7 @@
 */
 
 $german = array(
-	'river:tags' => 'Aktivität - Tags',
+   'river:tags' => 'Aktivität - Tags',
 		
    'follow_tags:title'           		    => 'Folge Tags',
    'follow_tags:sidebar:title'  		    => 'Folge Tags Einstellungen',
@@ -18,9 +18,13 @@ $german = array(
    'follow_tags:save:message'				=> 'Tags gespeichert!',
    'follow_tags:tags_input:add'				=> 'Tag hinzufügen',
   
-   'follow_tags:settings:minChar'			=>'Set min Char for Autocomplete',
-   'follow_tags:settings:threshold'			=>'Set threshold for Autocomplete',
-   'follow_tags:settings:defaultTags'		=>'Set up some defaultTags',
+   'follow_tags:settings:minChar'			=> 'set min char for autocomplete',
+   'follow_tags:settings:threshold'			=> 'set threshold for autocomplete',
+   'follow_tags:settings:defaultTags'		=> 'set up some default tags',
+   'follow_tags:settings:tagLimit'			=> 'total number of tags 0 = no limit',
+   'follow_tags:settings:removeConfirmation'=> 'press the backspace key twice to remove the last tag',
+   'follow_tags:settings:caseSensitive' 	=> 'whether the duplication check should do a case sensitive check or not',
+   'follow_tags:settings:allowSpaces' 		=> 'allow Spaces in a tag',
    
    'follow_tags:settings:title'  			=>'Folge Tags Einstellungen',
    'follow_tags:settings:title:tags'		=>'Meine Tags',
