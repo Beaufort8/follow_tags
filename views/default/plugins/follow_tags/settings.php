@@ -23,13 +23,12 @@ $allowSpaces = elgg_view("input/dropdown", array("name" => "params[allowSpaces]"
 
 // generate output
 $body ="<table class='elgg-table-alt'>";
-$body.="<tr><th>setting</th><th>value</th><th>description</th></tr>";
-	$body.="<tr><td>minChar</td><td>".$threshold."</td><td>". elgg_echo('follow_tags:settings:minChar')."</td></tr>";	
-	$body.="<tr><td>threshold</td><td>".$threshold."</td><td>". elgg_echo('follow_tags:settings:threshold')."</td></tr>";	
-	$body.="<tr><td>tagLimit</td><td>".$tagLimit."</td><td>". elgg_echo('follow_tags:settings:tagLimit')."</td></tr>";	
-	$body.="<tr><td>removeConfirmation</td><td>".$removeConfirmation."</td><td>". elgg_echo('follow_tags:settings:removeConfirmation')."</td></tr>";	
-	$body.="<tr><td>caseSensitive</td><td>".$caseSensitive."</td><td>". elgg_echo('follow_tags:settings:caseSensitive')."</td></tr>";
-	$body.="<tr><td>allowSpaces</td><td>".$allowSpaces."</td><td>". elgg_echo('follow_tags:settings:allowSpaces')."</td></tr>";	
+	$body.="<tr><td>". elgg_echo('follow_tags:settings:minChar')."</td><td>".$threshold."</td></tr>";	
+	$body.="<tr><td>". elgg_echo('follow_tags:settings:threshold')."</td><td>".$threshold."</td></tr>";	
+	$body.="<tr><td>". elgg_echo('follow_tags:settings:tagLimit')."</td><td>".$tagLimit."</td></tr>";	
+	$body.="<tr><td>". elgg_echo('follow_tags:settings:removeConfirmation')."</td><td>".$removeConfirmation."</td></tr>";	
+	$body.="<tr><td>". elgg_echo('follow_tags:settings:caseSensitive')."</td><td>".$caseSensitive."</td></tr>";
+	$body.="<tr><td>". elgg_echo('follow_tags:settings:allowSpaces')."</td><td>".$allowSpaces."</td></tr>";	
 $body.="</table>";
 
 echo elgg_view_module("inline", elgg_echo("Autocomplete Settings"), $body);
