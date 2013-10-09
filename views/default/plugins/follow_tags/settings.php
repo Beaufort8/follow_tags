@@ -20,10 +20,17 @@ $tagLimit = elgg_view("input/dropdown", array("name" => "params[tagLimit]", "opt
 $removeConfirmation = elgg_view("input/dropdown", array("name" => "params[removeConfirmation]", "options_values" => $yesno_options, "value" => $vars['entity']->removeConfirmation));
 $caseSensitive = elgg_view("input/dropdown", array("name" => "params[caseSensitive]", "options_values" => $yesno_options, "value" => $vars['entity']->caseSensitive));
 $allowSpaces = elgg_view("input/dropdown", array("name" => "params[allowSpaces]", "options_values" => $yesno_options, "value" => $vars['entity']->allowSpaces));
+$followTags  = elgg_view("input/dropdown", array("name" => "params[followTags]", "options_values" => $yesno_options ,"value" => $vars['entity']->followTags));
 
 // generate output
 $body ="<table class='elgg-table'>";
-	$body.="<tr><td>". elgg_echo('follow_tags:settings:minChar')."</td><td>".$threshold."</td></tr>";	
+	$body.="<tr><td>". elgg_echo('follow_tags:settings:followTags')."</td><td style='width:150px'>".$followTags."</td></tr>";	
+$body.="</table>";
+
+echo elgg_view_module("inline", elgg_echo("Follow Tags"), $body);
+
+$body ="<table class='elgg-table'>";
+	$body.="<tr><td>". elgg_echo('follow_tags:settings:minChar')."</td><td style='width:150px'>".$threshold."</td></tr>";	
 	$body.="<tr><td>". elgg_echo('follow_tags:settings:threshold')."</td><td>".$threshold."</td></tr>";	
 	$body.="<tr><td>". elgg_echo('follow_tags:settings:tagLimit')."</td><td>".$tagLimit."</td></tr>";	
 	$body.="<tr><td>". elgg_echo('follow_tags:settings:removeConfirmation')."</td><td>".$removeConfirmation."</td></tr>";	

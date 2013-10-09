@@ -25,6 +25,7 @@ $english = array(
    'follow_tags:settings:removeConfirmation'=> 'Press the backspace key twice to remove the last tag',
    'follow_tags:settings:caseSensitive' 	=> 'Whether the duplication check should do a case sensitive check or not',
    'follow_tags:settings:allowSpaces' 		=> 'Allow spaces in a tag',
+   'follow_tags:settings:followTags'		=> 'Allow user to follow tags',
    
    'follow_tags:settings:title'  			=> 'Follow tags settings',
    'follow_tags:settings:title:tags'		=> 'My tags',

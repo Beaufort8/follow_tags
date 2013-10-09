@@ -25,7 +25,8 @@ $german = array(
    'follow_tags:settings:removeConfirmation'=> 'Tag löschen zwei mal ausführen',
    'follow_tags:settings:caseSensitive' 	=> 'Groß- Kleinschreibung berücksichtigen',
    'follow_tags:settings:allowSpaces' 		=> 'Leerzeichen im Tag erlauben',
-   
+   'follow_tags:settings:followTags'		=> 'Follow-tags-Funktion verwenden',
+
    'follow_tags:settings:title'  			=>'Folge Tags Einstellungen',
    'follow_tags:settings:title:tags'		=>'Meine Tags',
    'follow_tags:settings:title:notify'   	=>'Benachrichtigung Einstellungen',

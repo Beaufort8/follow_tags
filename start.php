@@ -6,37 +6,45 @@ elgg_register_event_handler('init', 'system', 'follow_tags_init');
 
 function follow_tags_init() {
 	
-	// Register Cache-Clear hook after change admin settig
-	elgg_register_plugin_hook_handler("setting", "plugin", "follow_tags_setting");
-	
-	//Register Save Action for saving and changing FollowTags
-	elgg_register_action("follow_tags/save", dirname(__FILE__) . '/action/save.php');
+	// Load follow-tags configuration
 
-	//Register a River Tab
-	if (elgg_is_logged_in()) {
-		$user = elgg_get_logged_in_user_entity();
-		elgg_register_menu_item('filter', array(
-			'name' => 'tags',
-			'href' => "/activity/tags",
-			'text' => elgg_echo("follow_tags:tab:title"),
-			'priority' => 500,
-			'contexts' => array('activity'),
+	if(elgg_get_plugin_setting("followTags", "follow_tags") == "true") {
 			
-		));
+		// Register Cache-Clear hook after change admin settig
+		elgg_register_plugin_hook_handler("setting", "plugin", "follow_tags_setting");
+	
+		//Register Save Action for saving and changing FollowTags
+		elgg_register_action("follow_tags/save", dirname(__FILE__) . '/action/save.php');	
+	
+		//Register a River Tab
+		if (elgg_is_logged_in()) {
+			$user = elgg_get_logged_in_user_entity();
+			elgg_register_menu_item('filter', array(
+				'name' => 'tags',
+				'href' => "/activity/tags",
+				'text' => elgg_echo("follow_tags:tab:title"),
+				'priority' => 500,
+				'contexts' => array('activity'),
+			
+			));
 
-		//Register a Sidebar Item for Usersettings
-		elgg_register_menu_item('page', array(
-			'name' => "follow_tags",
-			'text' => elgg_echo("follow_tags:sidebar:title"),
-			'href' => "follow_tags/settings/" . $user->username,
-			'context' => "settings",
-		));
+			//Register a Sidebar Item for Usersettings
+			elgg_register_menu_item('page', array(
+				'name' => "follow_tags",
+				'text' => elgg_echo("follow_tags:sidebar:title"),
+				'href' => "follow_tags/settings/" . $user->username,
+				'context' => "settings",
+			));
+		}
+	
+		elgg_register_plugin_hook_handler("route", "activity", "follow_tags_route_activity_hook");
+	
+		//Register Pagehandlers
+		elgg_register_page_handler('follow_tags', 'follow_tags_page_handler');
+	
 	}
 
-	elgg_register_plugin_hook_handler("route", "activity", "follow_tags_route_activity_hook");
-	
 	//Register Pagehandlers
-	elgg_register_page_handler('follow_tags', 'follow_tags_page_handler');
 	elgg_register_page_handler('follow_tags_data', 'follow_tags_data_page_handler');
 
 	//Register JS and CSS for custom taginput field
@@ -55,8 +63,6 @@ function follow_tags_init() {
 	 
 	// Run the followtags_notofy function in event is triggerd
 	elgg_register_event_handler('create', 'object', 'follow_tags_notify', 501);
-	
-	
 	
 }
 
