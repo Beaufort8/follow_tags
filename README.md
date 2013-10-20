@@ -16,6 +16,7 @@ Copy the plugin-folder in your '/mod' directory and activate the plugin.
 
 ### Admin-settings
 
+ * enable/disable Follow Tags to provide the tag-autocompletion exclusivly
  * minimum number of characters a user must type before a search is performed
  * tag-threshold for autocomplete-selection
  * total number of tags
