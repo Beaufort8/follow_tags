@@ -49,7 +49,7 @@ function follow_tags_init() {
 
 	//Register JS and CSS for custom taginput field
 	$js_url = 'mod/follow_tags/vendors/tag-it.min.js';
-	elgg_register_js('jquery.tagsinput', $js_url, 'footer');
+	elgg_register_js('jquery.tagsinput', $js_url);
 	
 	// Register CSS for TagInput
 	$css_url = 'mod/follow_tags/vendors/tag-it.css';
