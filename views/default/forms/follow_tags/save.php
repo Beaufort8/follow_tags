@@ -1,4 +1,4 @@
- <?php
+<?php
 /**
  * help/save form body
  *
@@ -36,16 +36,6 @@ $strings_notify_description = elgg_echo("follow_tags:settings:notify:description
 // Display Elements
 echo <<< HTML
 
-<div class="followtags_settings">
-<div class="elgg-module elgg-module-info">
-	<div class="elgg-head">
-		<h3>$strings_title_tag</h3>
-	</div>
-<div class="follow_tagsinput">$follow_tags</div>
-
-</div>
-</div>
-
 <div class="notification_personal">
 <div class="elgg-module elgg-module-info">
 	<div class="elgg-head">
@@ -67,4 +57,3 @@ echo <<< HTML
 
 
 HTML;
-

@@ -14,8 +14,10 @@ function follow_tags_init() {
 		elgg_register_plugin_hook_handler("setting", "plugin", "follow_tags_setting");
 	
 		//Register Save Action for saving and changing FollowTags
-		elgg_register_action("follow_tags/save", dirname(__FILE__) . '/action/save.php');	
-	
+		elgg_register_action("follow_tags/save", dirname(__FILE__) . '/action/save_notify.php');	
+		elgg_register_action("follow_tags/activity", dirname(__FILE__) . '/action/save.php');	
+		
+
 		//Register a River Tab
 		if (elgg_is_logged_in()) {
 			$user = elgg_get_logged_in_user_entity();

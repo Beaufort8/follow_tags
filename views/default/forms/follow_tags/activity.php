@@ -1,35 +1,47 @@
 <?php
 /**
- * FollowTags Form for the activity stream
+ * Activity Tags and save form body
  *
  *
  * for Elgg 1.8
  */
 
-//Get current Tags from logged in User
+//Get current Tags from logged in User and Notify value
 $value = follow_tags_get_current_tags(elgg_get_logged_in_user_guid());
 
-$user = elgg_get_logged_in_user_entity();
-$username = $user->username;
-$changeSettingsString = elgg_echo('follow_tags:changesettings');
 
-if($value){
-	//Create Views Elements
-	$current_tags =  elgg_view('output/tags', array(
-		'name' => 'followtags',
-		'value' => explode(",",$value),
-		));
-}
+//Create Views Elements
+$save_btn = elgg_view('input/submit', array(
+	'value' => elgg_echo('save'),
+	'class' => 'elgg-button-submit',
+	));
 
+$follow_tags = elgg_view('input/tags', array(
+	'name' => 'followtags',
+	'value' => $value,
+	'id' => 'follow',
+	));
+
+
+
+
+// Display Elements
 echo <<< HTML
-<ul class="elgg-list">
-	<li><span class="activity-tags">
-	$current_tags
-	</span>
-	</li>
-</ul>
-<a class="elgg-button elgg-button-action button-tags-changesettings" href="/follow_tags/settings/$username"><span class="elgg-icon elgg-icon-settings-alt"></span>$changeSettingsString</a>
+
+<div class="follow_tagsinput">$follow_tags</div>
+
+<div class="followtags_save hidden">
+	$save_btn
+</div>
+
+
+<script>
+ $(document).ready(function () {
+	$( ".follow_tagsinput" ).focus(function() {
+  		$(".followtags_save").show();
+	});
+});
+</script>
 
 HTML;
-
 

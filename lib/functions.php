@@ -50,7 +50,6 @@ function follow_tags_create_follow_tag_object() {
  * Save FollowTags
  *
  */
-
 function follow_tags_save_follow_tags($input, $id, $notify) {
 	// Get FollowTagObject and Clear all Tag Relationships
 	$user = elgg_get_logged_in_user_entity();
@@ -60,8 +59,7 @@ function follow_tags_save_follow_tags($input, $id, $notify) {
 	$followTags->description =$input;
 	$followTags->title = $user->name;
 	$followTags->access_id = 1;
-	$followTags->notify = $notify;
-
+	
 	// Convert the Taginput string to array and save to FollowTagObj
 	$tagarray = string_to_tag_array($input);
 	$followTags->tags = $tagarray;
@@ -73,7 +71,17 @@ function follow_tags_save_follow_tags($input, $id, $notify) {
 	}
 	return true;
 }
-
+/**
+ * Save FollowTags_Notify
+ *
+ */
+function follow_tags_save_notify($id, $notify){
+	// Get FollowTagObject 
+	$user = elgg_get_logged_in_user_entity();
+	// Set Notification Settings
+	$followTags = get_entity($id);
+	$followTags->notify = $notify;	
+}
 /**
  * Return the GUID of the FollowTagsObj
  *
