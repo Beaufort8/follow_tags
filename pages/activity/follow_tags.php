@@ -23,29 +23,18 @@ if ($type != 'all') {
 
 $title = elgg_echo('river:tags');
 
+//Get Edit Button and Current Tags
+$content = elgg_view_form('follow_tags/activity');
+//Get Riverfilter
+$content .= elgg_view('core/river/filter', array('selector' => $selector));
+
 $activity = follow_tags_get_activity_follow_tags($options);
 
 if(!$activity){
-	// ToDo: possible user-information about tag-settings
-	/*
-	$content = "";
-	$content .= elgg_view('core/river/filter', array('selector' => $selector));
 	$activity = '<div class="emptynotice">';
-	$activity .= elgg_echo('follow_tags:notags') . ' ';
-	$activity .= elgg_view('output/url', array(
-		'text' => elgg_echo('follow_tags:notags:settings'),
-		'href' => "follow_tags/settings/$user",
-		'is_trusted' => true
-		));
-	$activity .= '.</div>';
-	*/
+	$activity .= elgg_echo('follow_tags:notags');
+	$activity .= '</div>';
 }
-
-//Get Edit Button and Current Tags
-$content = elgg_view_form('follow_tags/activity');
-
-//Get Riverfilter
-$content .= elgg_view('core/river/filter', array('selector' => $selector));
 
 //Get Sidebar
 $sidebar = elgg_view('core/river/sidebar');

@@ -32,7 +32,7 @@ $german = array(
    'follow_tags:settings:title:notify'   	=>'Benachrichtigung Einstellungen',
    'follow_tags:settings:notify:description'=>'Benachrichtige mich, wenn zugehörige Inhalte ertellt wurden.',
 
-   'follow_tags:notags' => 'Sie folgen bisher keinen Tags oder es werden keine Einträge zu Ihren Tags gefunden. Sie können diese hier ändern: ',
+   'follow_tags:notags' => 'Sie folgen bisher keinen Tags oder es werden keine Einträge zu Ihren Tags gefunden.',
    'follow_tags:notags:settings' => 'Folge Tags Einstellungen',
 
    'follow_tags:notification:subject'		=> 'Neuer Inhalt mit passendem Tag',

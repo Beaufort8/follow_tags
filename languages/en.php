@@ -33,7 +33,7 @@ $english = array(
    'follow_tags:settings:notify:description'=> 'Notify me when related content is published.',
 
 
-   'follow_tags:notags' => 'You do not follow any tags yet or there are no entries matching your query. You can add tags in the ',
+   'follow_tags:notags' => 'You do not follow any tags yet or there are no entries matching your query.',
    'follow_tags:notags:settings' 			=> 'tag settings',
 
    'follow_tags:notification:subject'		=>'New content with matching tag',
