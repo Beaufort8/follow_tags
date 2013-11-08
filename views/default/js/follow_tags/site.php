@@ -31,7 +31,7 @@ $allowSpaces = elgg_get_plugin_setting("allowSpaces", "follow_tags");
 elgg.provide('elgg.tags_input');
 
 elgg.tags_input.init = function() {
-	$('.elgg-input-tags').each(function(){
+	$('div:not(.mandatory) > .elgg-input-tags').each(function(){
 		var el = $(this);
 		$.getJSON( '<?php echo elgg_get_site_url(); ?>follow_tags_data', function( tags ) {	
 			$(el).tagit({
