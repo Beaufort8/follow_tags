@@ -26,7 +26,8 @@ $title = elgg_echo('river:tags');
 $activity = follow_tags_get_activity_follow_tags($options);
 
 if(!$activity){
-
+	// ToDo: possible user-information about tag-settings
+	/*
 	$content = "";
 	$content .= elgg_view('core/river/filter', array('selector' => $selector));
 	$activity = '<div class="emptynotice">';
@@ -37,6 +38,7 @@ if(!$activity){
 		'is_trusted' => true
 		));
 	$activity .= '.</div>';
+	*/
 }
 
 //Get Edit Button and Current Tags
