@@ -41,6 +41,7 @@ $german = array(
 
    'follow_tags:changesettings' => 'Tags bearbeiten',
 
+   'item:object:FollowTags' => 'Folge Tags',
  
 );
 

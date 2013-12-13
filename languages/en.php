@@ -42,6 +42,7 @@ $english = array(
 
    'follow_tags:changesettings' => 'Edit Tags',
 
+   'item:object:FollowTags' => 'Follow tags',
  
 );
 
