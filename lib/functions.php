@@ -27,12 +27,13 @@ function follow_tags_has_follow_tag_object($guid) {
 
 function follow_tags_create_follow_tag_object() {
 	$user = elgg_get_logged_in_user_entity();
+	$access_id = get_default_access($user);
 
 	$followTag = new ElggObject();
 	$followTag->subtype = "FollowTags";
 	$followTag->owner_guid = $user->guid;
 	$followTag->title = $user->name;
-	$followTag->access_id = 1;
+	$followTag->access_id = $access_id;
 	$followTag->description = "";
 
 	// Notify standard value
@@ -53,12 +54,17 @@ function follow_tags_create_follow_tag_object() {
 function follow_tags_save_follow_tags($input, $id, $notify) {
 	// Get FollowTagObject and Clear all Tag Relationships
 	$user = elgg_get_logged_in_user_entity();
+	$access_id = get_default_access($user);
 
 	$followTags = get_entity($id);
+	
+	echo $followTags->guid;
+	exit;
+	
 	$followTags->clearRelationships();
 	$followTags->description =$input;
 	$followTags->title = $user->name;
-	$followTags->access_id = 1;
+	$followTags->access_id = $access_id;
 	
 	// Convert the Taginput string to array and save to FollowTagObj
 	$tagarray = string_to_tag_array($input);
