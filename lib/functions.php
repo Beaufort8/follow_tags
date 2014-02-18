@@ -58,20 +58,21 @@ function follow_tags_save_follow_tags($input, $id, $notify) {
 
 	$followTags = get_entity($id);
 	
-	echo $followTags->guid;
-	exit;
+	if( $followTags->getSubtype() == 'FollowTags' ) {
 	
-	$followTags->clearRelationships();
-	$followTags->description =$input;
-	$followTags->title = $user->name;
-	$followTags->access_id = $access_id;
+		$followTags->clearRelationships();
+		$followTags->description =$input;
+		$followTags->title = $user->name;
+		$followTags->access_id = $access_id;
 	
-	// Convert the Taginput string to array and save to FollowTagObj
-	$tagarray = string_to_tag_array($input);
-	$followTags->tags = $tagarray;
+		// Convert the Taginput string to array and save to FollowTagObj
+		$tagarray = string_to_tag_array($input);
+		$followTags->tags = $tagarray;
 
-	$saved = $followTags->save();
-
+		$saved = $followTags->save();
+	
+	}
+	
 	if(!$saved){
 	  return false;
 	}
@@ -98,7 +99,9 @@ function follow_tags_get_tag_guid($guid){
 		'type' => 'object' ,
 		'subtype' => 'FollowTags',
 		'owner_guid' => $guid,
+		'limit' => 1
 		);
+	
 	$tags = elgg_get_entities($options);
 
 	foreach($tags as $tag) {

@@ -6,9 +6,14 @@
  * for Elgg 1.8
  */
 
-//Get current Tags from logged in User and Notify value
-$value = follow_tags_get_current_tags(elgg_get_logged_in_user_guid());
 
+//Create a FollowTagsObject if logged in user have none
+if (!follow_tags_has_follow_tag_object(elgg_get_logged_in_user_guid())) {
+	follow_tags_create_follow_tag_object();
+} else {
+	//Get current Tags from logged in User and Notify value
+	$value = follow_tags_get_current_tags(elgg_get_logged_in_user_guid());
+}
 
 //Create Views Elements
 $save_btn = elgg_view('input/submit', array(
@@ -21,9 +26,6 @@ $follow_tags = elgg_view('input/tags', array(
 	'value' => $value,
 	'id' => 'follow',
 	));
-
-
-
 
 // Display Elements
 echo <<< HTML
